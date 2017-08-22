@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='emiprep',
       version='0.0.0',
       description='(yet another) emission pre-processor for atmospheric chemistry models',
-      url='http://github.com/andreas-h/emiprep',
+      url='https://emiprep.readthedocs.io/',
       author='Andreas Hilboll',
       author_email='hilboll@uni-bremen.de',
       license='AGPLv3',
