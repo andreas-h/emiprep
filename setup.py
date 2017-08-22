@@ -1,5 +1,36 @@
 from setuptools import setup
 
+
+def _check_requirements():
+    """Prepare a list of requirements to be passed to setup().
+
+    We don't want to add required libraries to ``install_requires``
+    unconditionally, because then we would risk updating an installed
+    numpy/xarray/netCDF4/..., which is prone to cause trouble.  So we try to
+    import the requirements first and only add them to the ``_requires`` in
+    case they are not installed.  See
+
+    """
+    requirements = []
+
+    try:
+        import numpy
+    except ImportError:
+        requirements += ['numpy>=1.7']
+
+    try:
+        import xarray
+    except ImportError:
+        requirements += ['xarray>=0.8']
+
+    try:
+        import netCDF4
+    except ImportError:
+        requirements += ['netCDF4>=1.2.1']
+
+    return requirements
+
+
 setup(name='emiprep',
       version='0.0.0',
       description='(yet another) emission pre-processor for atmospheric chemistry models',
@@ -23,7 +54,8 @@ setup(name='emiprep',
           'Programming Language :: Python :: 3.6',
            ],
       packages=['emiprep'],
-      setup_requires=[
+      install_requires=_check_requirements(),
+      setup_requires=_check_requirements() + [
           'pytest-runner',
            ],
       tests_require=[
