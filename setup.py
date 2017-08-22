@@ -55,7 +55,7 @@ setup(name='emiprep',
            ],
       packages=['emiprep'],
       install_requires=_check_requirements(),
-      setup_requires=_check_requirements() + [
+      setup_requires=[
           'pytest-runner',
            ],
       tests_require=[
