@@ -58,8 +58,12 @@ setup(name='emiprep',
       install_requires=_check_requirements(),
       setup_requires=[
           'pytest-runner',
+          'pytest-cov',
+          'pytest-flake8',
       ],
       tests_require=[
           'pytest',
+          'pytest-cov',
+          'pytest-flake8',
       ],
       zip_safe=False)
