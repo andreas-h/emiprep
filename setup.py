@@ -33,7 +33,8 @@ def _check_requirements():
 
 setup(name='emiprep',
       version='0.0.0',
-      description='(yet another) emission pre-processor for atmospheric chemistry models',
+      description=('(yet another) emission pre-processor for '
+                   'atmospheric chemistry models'),
       url='https://emiprep.readthedocs.io/',
       author='Andreas Hilboll',
       author_email='hilboll@uni-bremen.de',
@@ -52,13 +53,13 @@ setup(name='emiprep',
           'Programming Language :: Python :: 3.4',
           'Programming Language :: Python :: 3.5',
           'Programming Language :: Python :: 3.6',
-           ],
+      ],
       packages=['emiprep'],
       install_requires=_check_requirements(),
       setup_requires=[
           'pytest-runner',
-           ],
+      ],
       tests_require=[
           'pytest',
-           ],
+      ],
       zip_safe=False)
