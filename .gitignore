@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# don't save conda's record.txt
+record.txt
