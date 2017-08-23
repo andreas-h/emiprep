@@ -21,8 +21,10 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__),
                                                 '..')))
+
 import emiprep.dummy
 
+sys.path.insert(0, os.path.abspath('_ext'))
 
 # -- General configuration ------------------------------------------------
 
@@ -36,6 +38,7 @@ import emiprep.dummy
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.autosummary',
               'sphinx.ext.coverage',
+              'edit_on_github',
               'numpydoc',
               'sphinx.ext.todo',
               'sphinx.ext.mathjax',
@@ -186,11 +189,30 @@ todo_include_todos = True
 #
 html_theme = 'alabaster'
 
+html_show_sourcelink = True
+html_copy_source = False  # this has to be True or github links don't show
+
+# Edit on Github config
+if '+' in emiprep.__version__:
+    code_branch = 'develop'
+else:
+    code_branch = 'v%s' % emiprep.__version__
+
+edit_on_github_project = 'andreas-h/emiprep'
+edit_on_github_branch = code_branch
+edit_on_github_src_path = 'docs/'
+
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+#html_theme_options = {
+#    'github_user': 'andreas-h',
+#    'github_repo': 'emiprep',
+#    'github_type': None,  #'star',  needed when github button is added to sidebar via about.html
+#    'github_banner': False,  # fork me on github ribbon in top right corner
+#
+#}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
