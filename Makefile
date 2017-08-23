@@ -8,5 +8,6 @@ docs:
 
 doccov: docs
 	$(MAKE) -C docs coverage
+	cat docs/_build/coverage/*.txt
 
 .PHONY: test doccov docs
