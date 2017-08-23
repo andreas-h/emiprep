@@ -1,1 +1,3 @@
 include LICENSE
+include versioneer.py
+include emiprep/_version.py

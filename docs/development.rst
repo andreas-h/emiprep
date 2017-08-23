@@ -28,6 +28,14 @@ For setting up the repository, I have followed the following guides:
 - https://packaging.python.org/tutorials/distributing-packages/
 
 
+Version numbers
+===============
+
+emiprep uses versioneer_ for managing version numbers.
+
+.. _versioneer: https://github.com/warner/python-versioneer
+
+
 Testing
 =======
 

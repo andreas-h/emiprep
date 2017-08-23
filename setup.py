@@ -1,5 +1,7 @@
 from setuptools import setup
 
+import versioneer
+
 
 def _check_requirements():
     """Prepare a list of requirements to be passed to setup().
@@ -32,7 +34,8 @@ def _check_requirements():
 
 
 setup(name='emiprep',
-      version='0.0.0',
+      version=versioneer.get_version(),
+      cmdclass=versioneer.get_cmdclass(),
       description=('(yet another) emission pre-processor for '
                    'atmospheric chemistry models'),
       url='https://emiprep.readthedocs.io/',
@@ -60,6 +63,7 @@ setup(name='emiprep',
           'pytest-runner',
           'pytest-cov',
           'pytest-flake8',
+          'versioneer',
       ],
       tests_require=[
           'pytest',
