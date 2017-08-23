@@ -31,6 +31,8 @@ requirements:
     - setuptools
     # if your project compiles code (such as a C extension) then add `toolchain` as a build requirement.
     - pytest-runner
+    - pytest-cov
+    - pytest-flake8
   run:
     - python
     - numpy >=1.7
@@ -44,6 +46,8 @@ test:
     - emiprep
   requires:
     - pytest
+    - pytest-cov
+    - pytest-flake8
 
 about:
   home: http://github.com/andreas-h/emiprep
