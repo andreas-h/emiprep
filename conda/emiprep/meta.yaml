@@ -1,0 +1,58 @@
+{% set name = "emiprep" %}
+{% set version = "0.0.1" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "ad21868d16d986e67594d431cef3cab578ca2db57bd451146764171ea491729c" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  script: python setup.py install  --single-version-externally-managed --record=record.txt  # [not win]
+  script: "%PYTHON%" setup.py install && if errorlevel 1 exit 1                             # [win]
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest
+    - pytest-runner
+    - pytest-cov
+    - pytest-flake8
+    - versioneer
+  run:
+    - python
+    - numpy >=1.7
+    - xarray >=0.8
+    - netcdf4 >=1.2.1
+
+test:
+  imports:
+    - emiprep
+  requires:
+    - pytest
+    - pytest-cov
+    - pytest-flake8
+
+about:
+  home: https://emiprep.readthedocs.io/
+  license: GNU Affero General Public License v3
+  license_family: AGPL
+  license_file: LICENSE
+  summary: (yet another) emission pre-processor for atmospheric chemistry models
+  description: |
+    emiprep is yet another emission pre-processor for atmospheric chemistry
+    models. While being developed with WRF-Chem in mind, there is no reason why
+    it could not be extended to be used with other models as well.
+  doc_url: https://emiprep.readthedocs.io/
+  dev_url: https://github.com/andreas-h/emiprep/
+
+extra:
+  recipe-maintainers:
+    - andreas-h
