@@ -18,7 +18,6 @@
 #
 import inspect
 import os
-import re
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__),
                                                 '..')))
@@ -46,13 +45,49 @@ autosummary_generate = True
 
 
 def linkcode_resolve(domain, info):
-    """ Determine the URL corresponding to Python object
+    """Determine the URL corresponding to Python object
 
-    This function has been adapted from the SciPy documentation
+    This function has been copied from the pandas documentation
+
+    License
+    =======
+    Contrary to the rest of the emiprep code, this function is licensed as
+    follows:
+
+    BSD 3-Clause License
+
+    Copyright (c) 2008-2012, AQR Capital Management, LLC, Lambda Foundry, Inc.
+    and PyData Development Team All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+
+    * Neither the name of the copyright holder nor the names of its
+      contributors may be used to endorse or promote products derived from
+      this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+    POSSIBILITY OF SUCH DAMAGE.
 
     References
     ==========
-    - https://github.com/scipy/scipy/blob/master/doc/source/conf.py#L315
+    - https://github.com/pandas-dev/pandas/blob/master/doc/source/conf.py#L522
 
     """
     if domain != 'py':
@@ -77,11 +112,6 @@ def linkcode_resolve(domain, info):
     except:
         fn = None
     if not fn:
-        try:
-            fn = inspect.getsourcefile(sys.modules[obj.__module__])
-        except:
-            fn = None
-    if not fn:
         return None
 
     try:
@@ -90,27 +120,19 @@ def linkcode_resolve(domain, info):
         lineno = None
 
     if lineno:
-        linespec = "#L%d-L%d" % (lineno, lineno + len(source) - 1)
+        linespec = '#L%d-L%d' % (lineno, lineno + len(source) - 1)
     else:
-        linespec = ""
+        linespec = ''
 
-    startdir = os.path.abspath(os.path.join(os.path.dirname(emiprep.__file__),
-                                            '..'))
-    fn = os.path.relpath(fn, start=startdir).replace(os.path.sep, '/')
+    fn = os.path.relpath(fn, start=os.path.dirname(emiprep.__file__))
 
-    if fn.startswith('emiprep/'):
-        m = re.match(r'^.*dev0\+([a-f0-9]+)$', emiprep.__version__)
-        if m:
-            return "https://github.com/andreas-h/emiprep/blob/%s/%s%s" % (
-                m.group(1), fn, linespec)
-        elif 'dev' in emiprep.__version__:
-            return "https://github.com/andreas-h/emiprep/blob/develop/%s%s" % (
-                fn, linespec)
-        else:
-            return "https://github.com/andreas-h/emiprep/blob/v%s/%s%s" % (
-                emiprep.__version__, fn, linespec)
+    gh_emiprep_base_url = 'http://github.com/andreas-h/emiprep/'
+    if '+' in emiprep.__version__:
+        return gh_emiprep_base_url + 'blob/develop/emiprep/%s%s' % (
+            fn, linespec)
     else:
-        return None
+        return gh_emiprep_base_url + 'blob/v%s/emiprep/%s%s' % (
+            emiprep.__version__, fn, linespec)
 
 
 # Add any paths that contain templates here, relative to this directory.
@@ -134,7 +156,7 @@ author = u'Andreas Hilboll'
 # built documents.
 #
 # The short X.Y version.
-version = u'0.0.0'
+version = emiprep.__version__
 # The full version, including alpha/beta/rc tags.
 release = version
 
