@@ -33,6 +33,7 @@ requirements:
     - pytest-runner
     - pytest-cov
     - pytest-flake8
+    - versioneer
   run:
     - python
     - numpy >=1.7
