@@ -1,7 +1,13 @@
 test:
 	python setup.py test
 
-doccov:
-	$(MAKE) -C docs coverage
+docs:
+	$(MAKE) -C docs apiclean
+	$(MAKE) -C docs clean
+	$(MAKE) -C docs html
 
-.PHONY: test doccov
+doccov: docs
+	$(MAKE) -C docs coverage
+	cat docs/_build/coverage/*.txt
+
+.PHONY: test doccov docs

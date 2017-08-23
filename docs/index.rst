@@ -21,6 +21,7 @@ in principle also work for other models.
    :caption: Contents:
 
    Development <development>
+   api
 
 
 Indices and tables
