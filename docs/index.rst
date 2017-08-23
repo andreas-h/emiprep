@@ -20,6 +20,7 @@ in principle also work for other models.
    :maxdepth: 2
    :caption: Contents:
 
+   Installation <install>
    Development <development>
    api
 
