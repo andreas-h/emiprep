@@ -1,6 +1,6 @@
 from setuptools import setup
 
-import versioneer
+import versioneer  # that's a local versioneer.py script from this repo
 
 
 def _check_requirements():
@@ -38,7 +38,7 @@ setup(name='emiprep',
       cmdclass=versioneer.get_cmdclass(),
       description=('(yet another) emission pre-processor for '
                    'atmospheric chemistry models'),
-      url='https://emiprep.readthedocs.io/',
+      url='https://github.com/andreas-h/emiprep/',
       author='Andreas Hilboll',
       author_email='hilboll@uni-bremen.de',
       license='AGPLv3',
@@ -61,9 +61,6 @@ setup(name='emiprep',
       install_requires=_check_requirements(),
       setup_requires=[
           'pytest-runner',
-          'pytest-cov',
-          'pytest-flake8',
-          'versioneer',
       ],
       tests_require=[
           'pytest',
