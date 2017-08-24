@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
-"""Sphinx extension to add ReadTheDocs-style "Edit on GitHub" links to the
-sidebar.
+"""Sphinx extension to add "Edit on GitHub" links to the sidebar.
 
-This file has been copied from https://github.com/home-assistant/home-assistant/
+This file is based on https://github.com/home-assistant/home-assistant/
 
 License for this source file only:
 
@@ -63,6 +62,11 @@ def html_page_context(app, pagename, templatename, context, doctree):
     if not doctree:
         warnings.warn("doctree is None")
         return
+
+    # this is a hack to suppress the GitHub links on autodoc API pages
+    if pagename.startswith('api/'):
+        return
+
     path = os.path.relpath(doctree.get('source'), app.builder.srcdir)
     show_url = get_github_url(app, 'blob', path)
     edit_url = get_github_url(app, 'edit', path)

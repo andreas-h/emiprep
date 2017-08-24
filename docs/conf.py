@@ -206,13 +206,26 @@ edit_on_github_src_path = 'docs/'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-#html_theme_options = {
-#    'github_user': 'andreas-h',
-#    'github_repo': 'emiprep',
-#    'github_type': None,  #'star',  needed when github button is added to sidebar via about.html
-#    'github_banner': False,  # fork me on github ribbon in top right corner
-#
-#}
+# see https://alabaster.readthedocs.io/en/latest/customization.html#theme-options
+html_theme_options = {
+    'description': "(yet another) emission pre-processor for atmospheric chemistry models",
+    #'github_user': 'andreas-h',
+    #'github_repo': 'emiprep',
+    #'github_type': 'star',  # needed when github button is added to sidebar via about.html
+    #'github_count': False,
+    #'github_banner': False,  # fork me on github ribbon in top right corner
+}
+
+html_sidebars = {
+    '**': [
+        'about.html',
+        'navigation.html',
+        'relations.html',
+        'sourcelink.html',
+        'searchbox.html',
+        'donate.html',
+    ]
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
