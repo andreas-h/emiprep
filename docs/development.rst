@@ -48,7 +48,8 @@ Making a release
 1. branch ``release-x.y.z`` off ``develop``
 2. last changes to ``release-x.y.z``
 3. ``git checkout master && git merge --no-ff release-x.y.z``
-4. ``git push --tags``
-5. ``python setup.py sdist``
-6. ``twine upload --repository pypi dist/emiprep-x-y-z.tar.gz``
-7. ``git checkout develop && cd conda && sh mk_conda_package.sh``
+4. ``git tag vx.y.z``
+5. ``git push --tags``
+6. ``python setup.py sdist``
+7. ``twine upload --repository pypi dist/emiprep-x-y-z.tar.gz``
+8. ``git checkout develop && cd conda && sh mk_conda_package.sh``
