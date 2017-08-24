@@ -1,3 +1,4 @@
+{%- if show_on_github_url or edit_on_github_url %}
 <h3>{{ _('This Page') }}</h3>
 <ul class="this-page-menu">
 {%- if show_on_github_url %}
@@ -9,3 +10,4 @@
          rel="nofollow">{{ _('Edit on GitHub') }}</a></li>
 {%- endif %}
 </ul>
+{%- endif %}
