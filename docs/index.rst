@@ -16,9 +16,12 @@ models.  It is being developed for `WRF-Chem
 <https://ruc.noaa.gov/wrf/wrf-chem/>`__, but there is no reason why it shouldn't
 in principle also work for other models.
 
+
+Contents
+========
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    Installation <install>
    Development <development>
