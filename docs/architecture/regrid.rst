@@ -91,7 +91,9 @@ possible ways to do this:
    create a netCDF file which contains the grid cell boundaries and conforms to
    the `SCRIP metadata convention
    <https://code.mpimet.mpg.de/projects/cdo/embedded/index.html#x1-150001.3.2>`__
-   which is understood by CDO.
+   which is understood by CDO.  This is currently problematic, because ``cdo
+   griddes`` identifies such a SCRIP netCDF file as *gridtype = generic*, see
+   https://code.mpimet.mpg.de/boards/1/topics/5319 for the discussion.
 
 The CDO documentation contains an `example
 <https://code.mpimet.mpg.de/projects/cdo/embedded/index.html#x1-837000D.1>`__ of
