@@ -25,6 +25,7 @@ Contents
 
    Installation <install>
    Development <development>
+   Architecture <architecture/index>
    api
 
 
