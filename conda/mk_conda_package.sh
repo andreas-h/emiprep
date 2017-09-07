@@ -5,6 +5,11 @@
 set -e
 CONDA_TEST=$(conda)
 
+# change to this script's directory
+# #############################################################################
+# see https://stackoverflow.com/a/16349776/152439
+cd "${0%/*}"
+
 # make sure we're on the develop branch
 # #############################################################################
 if [ $(git rev-parse --abbrev-ref HEAD) != 'develop' ]; then
@@ -53,7 +58,7 @@ conda convert --platform all $CONDA_PKG_FILENAME -o pkgs/
 
 # upload all packages to Anaconda
 # #############################################################################
-find pkgs/ -wholename "pkgs/*/emiprep-${EMIPREP_VERSION}-py??????????_?.tar.bz2" -exec anaconda upload {} +
+find pkgs/ -wholename "pkgs/*/emiprep-${EMIPREP_VERSION}-py??????????_?.tar.bz2" -exec anaconda  -t $ANACONDA_TOKEN upload {} +
 
 # commit the new meta.yaml to git
 # #############################################################################

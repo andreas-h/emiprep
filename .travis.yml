@@ -35,3 +35,15 @@ install:
 script:
   - python setup.py test
   - codecov
+
+after_success:
+  # Change permissions for Anaconda deployment script
+  - chmod +x ./conda/mk_conda_package.sh
+
+deploy:
+  # Deploy to Anaconda.org
+  - provider: script
+    script: ./conda/mk_conda_package.sh
+    on:
+      branch: master
+    skip_cleanup: true
