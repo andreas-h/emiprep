@@ -12,6 +12,27 @@ by Vincent Driessen
 <http://nvie.com/posts/a-successful-git-branching-model/>`__.
 
 
+Setting up the development environment
+======================================
+
+The simplest way to set up a development environment is via conda_:
+
+.. code:: shell
+
+   $ git clone git@github.com:YOURUSERNAME/emiprep.git
+   $ cd emiprep
+   $ conda create -n emiprep_dev --file requirements_dev.txt
+
+Now, whenever you want to work on *emiprep*, you simply have to activate this
+environment:
+
+.. code:: shell
+
+   $ source activate emiprep_dev
+
+.. _conda: https://docs.continuum.io/docs_oss/conda/
+
+
 Packaging
 =========
 
