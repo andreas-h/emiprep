@@ -54,7 +54,7 @@ CONDA_PKG_FILENAME=$(conda build emiprep --croot pkgs/ --output)
 
 # convert package to all other platforms
 # #############################################################################
-conda convert --platform all $CONDA_PKG_FILENAME -o pkgs/
+conda convert --platform osx-64,linux-32,linux-64 $CONDA_PKG_FILENAME -o pkgs/
 
 # upload all packages to Anaconda
 # #############################################################################
