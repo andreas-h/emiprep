@@ -24,14 +24,14 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda config --add channels conda-forge
+
   # Useful for debugging any issues with conda
   - conda info -a
 
-  # Replace dep1 dep2 ... with your dependencies
   - conda create -q -n emiprep_test python=$TRAVIS_PYTHON_VERSION --file requirements_dev.txt
   - source activate emiprep_test
   - python setup.py install
 
 script:
   - python setup.py test
-
+  - codecov
