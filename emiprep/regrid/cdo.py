@@ -90,10 +90,13 @@ def _metgrid_to_cdo_grid_info_extraction(fn_metgrid):
         {'grid_ysize': lat_center['grid_ysize'],
          'grid_xsize': lat_center['grid_xsize']},
         ['grid_ysize', 'grid_xsize'], name='dummydata')
+    dummy.attrs['coordinates'] = 'grid_center_lon grid_center_lat'
 
     # fix metadata
     for arr in lat_center, lon_center, lat_corner, lon_corner:
         arr.attrs['units'] = 'degrees'
+    lat_center.attrs['standard_name'] = 'latitude'
+    lon_center.attrs['standard_name'] = 'longitude'
     lat_center.attrs['bounds'] = 'grid_corner_lat'
     lon_center.attrs['bounds'] = 'grid_corner_lon'
 
@@ -107,6 +110,7 @@ def _metgrid_to_cdo_grid_info_extraction(fn_metgrid):
         np.ones(n_grid_size, dtype=int),
         {'grid_size': np.arange(1, n_grid_size + 1)}, ['grid_size'],
         name='grid_imask')
+    grid_imask.attrs['coordinates'] = 'grid_center_lon grid_center_lat'
     grid_imask.attrs['units'] = 'unitless'
 
     ds_new = xr.Dataset({arr.name: arr for arr in [lat_center, lon_center,
