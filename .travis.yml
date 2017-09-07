@@ -42,6 +42,7 @@ after_success:
 
 deploy:
   # Deploy to Anaconda.org
+  # see https://gist.github.com/yoavram/05a3c04ddcf317a517d5
   - provider: script
     script: ./conda/mk_conda_package.sh
     on:

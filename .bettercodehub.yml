@@ -1,0 +1,3 @@
+exclude:
+- /versioneer.py
+- /docs/_ext/.*
