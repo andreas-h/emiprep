@@ -11,8 +11,8 @@
 .. image:: https://img.shields.io/pypi/pyversions/emiprep.svg
    :target: https://pypi.python.org/pypi/emiprep/
 .. License
-.. image:: https://img.shields.io/github/license/andreas-h/emiprep.svg
-   :target: https://github.com/andreas-h/emiprep/blob/develop/LICENSE
+.. image:: https://img.shields.io/gitlab/license/andreas-h/emiprep.svg
+   :target: https://gitlab.com/andreas-h/emiprep/blob/develop/LICENSE
 .. Build Status (develop branch)
 .. image:: https://travis-ci.org/andreas-h/emiprep.svg?branch=develop
    :target: https://travis-ci.org/andreas-h/emiprep
@@ -37,3 +37,11 @@ models.  It is being developed for `WRF-Chem
 <https://ruc.noaa.gov/wrf/wrf-chem/>`__, but there is no reason why it shouldn't
 in principle also work for other models.
 
+
+Contact
+=======
+
+In case of problems, please `open an issue
+<https://gitlab.com/andreas-h/emiprep/issues/new>`__ or `send an e-mail
+<incoming+andreas-h/emiprep@gitlab.com>`__ (which will create an issue, i.e.,
+will be public).
