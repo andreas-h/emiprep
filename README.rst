@@ -10,18 +10,28 @@
 .. Python Versions
 .. image:: https://img.shields.io/pypi/pyversions/emiprep.svg
    :target: https://pypi.python.org/pypi/emiprep/
-.. License
-.. image:: https://img.shields.io/gitlab/license/andreas-h/emiprep.svg
+.. License - license badge must use gh repo, as shields.io doesn't support gl
+.. image:: https://img.shields.io/github/license/andreas-h/emiprep.svg
    :target: https://gitlab.com/andreas-h/emiprep/blob/develop/LICENSE
+   :alt: License: AGPLv3
 .. Build Status (develop branch)
-.. image:: https://travis-ci.org/andreas-h/emiprep.svg?branch=develop
-   :target: https://travis-ci.org/andreas-h/emiprep
+.. image:: https://gitlab.com/andreas-h/emiprep/badges/develop/pipeline.svg
+   :target: https://gitlab.com/andreas-h/emiprep/commits/develop
+   :alt: Build Status
 .. CodeCov            
-.. image:: https://codecov.io/gh/andreas-h/emiprep/branch/develop/graph/badge.svg
-  :target: https://codecov.io/gh/andreas-h/emiprep
+.. image:: https://codecov.io/gl/andreas-h/emiprep/branch/develop/graph/badge.svg
+   :target: https://codecov.io/gl/andreas-h/emiprep
+   :alt: Test Coverage (CodeCov)
+.. image:: https://api.codeclimate.com/v1/badges/a75f12e3b6f10b7a36d0/test_coverage
+   :target: https://codeclimate.com/repos/59b995cde1f80102ad00039e/test_coverage
+   :alt: Test Coverage (Code Climate)
 .. Static Analysis
-.. image:: https://bettercodehub.com/edge/badge/andreas-h/emiprep?branch=develop
-   :target: https://bettercodehub.com/results/andreas-h/emiprep
+.. image:: https://api.codeclimate.com/v1/badges/a75f12e3b6f10b7a36d0/maintainability
+   :target: https://codeclimate.com/repos/59b995cde1f80102ad00039e/maintainability
+   :alt: Maintainability (Code Climate)
+.. image:: https://api.codacy.com/project/badge/Grade/5ab78b2dd4d8436ebda2632c14e86739
+   :target: https://www.codacy.com/app/andreas-h/emiprep?utm_source=gitlab.com&amp;utm_medium=referral&amp;utm_content=andreas-h/emiprep&amp;utm_campaign=Badge_Grade
+   :alt: Codacy Report
 
 
 =======
