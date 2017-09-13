@@ -71,5 +71,6 @@ setup(name='emiprep',
           'pytest',
           'pytest-cov',
           'pytest-flake8',
+          'pytest-runner',
       ],
       zip_safe=False)
