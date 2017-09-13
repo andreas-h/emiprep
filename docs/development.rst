@@ -5,8 +5,8 @@ Development of emiprep
 Repository
 ==========
 
-The emiprep repository lives at `GitHub
-<https://github.com/andreas-h/emiprep>`__.  Source code is managed using `Git
+The emiprep repository lives at `GitLab
+<https://gitlab.com/andreas-h/emiprep>`__.  Source code is managed using `Git
 <https://git-scm.com/>`__ version control.  emiprep adopts the `branching model
 by Vincent Driessen
 <http://nvie.com/posts/a-successful-git-branching-model/>`__.
@@ -19,7 +19,7 @@ The simplest way to set up a development environment is via conda_:
 
 .. code:: shell
 
-   $ git clone git@github.com:YOURUSERNAME/emiprep.git
+   $ git clone git@gitlab.com:YOURUSERNAME/emiprep.git
    $ cd emiprep
    $ conda create -n emiprep_dev --file requirements_dev.txt
 

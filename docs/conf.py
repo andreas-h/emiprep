@@ -129,7 +129,7 @@ def linkcode_resolve(domain, info):
 
     fn = os.path.relpath(fn, start=os.path.dirname(emiprep.__file__))
 
-    gh_emiprep_base_url = 'http://github.com/andreas-h/emiprep/'
+    gh_emiprep_base_url = 'http://gitlab.com/andreas-h/emiprep/'
     if '+' in emiprep.__version__:
         return gh_emiprep_base_url + 'blob/develop/emiprep/%s%s' % (
             fn, linespec)

@@ -45,7 +45,7 @@ __licence__ = 'BSD (3 clause)'
 
 
 def get_github_url(app, view, path):
-    github_fmt = 'https://github.com/{}/{}/{}/{}{}'
+    github_fmt = 'https://gitlab.com/{}/{}/{}/{}{}'
     return (
         github_fmt.format(app.config.edit_on_github_project, view,
                           app.config.edit_on_github_branch,
