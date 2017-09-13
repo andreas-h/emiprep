@@ -1,3 +1,6 @@
+from __future__ import division
+
+
 """emiprep.regrid.cdo
 ==================
 
@@ -20,12 +23,7 @@ This module contains methods to regrid to WRF grids using CDO_.
 from itertools import product
 
 # in Python3, we need to use BytesIO
-try:
-    from StringIO import StringIO
-    from StringIO import StringIO as _StreamIO
-except ImportError:
-    from io import StringIO
-    from io import BytesIO as _StreamIO
+from io import StringIO, BytesIO
 
 import numpy as np
 import xarray as xr
@@ -147,7 +145,7 @@ def _mkblock(arr, width=10, sep=None):
         nrows += 1
 
     arr_slices = [arr.ravel()[i * width:(i + 1) * width] for i in range(nrows)]
-    with _StreamIO() as fd:
+    with BytesIO() as fd:
         for sl in arr_slices:
             np.savetxt(fd, np.atleast_2d(sl), fmt='%11.7f', newline=sep)
         griddes = fd.getvalue().decode()
@@ -180,19 +178,19 @@ def metgrid_to_cdo_griddes(fn_metgrid, fn_griddes=None):
     griddes = _metgrid_to_cdo_grid_info_extraction(fn_metgrid)
 
     with StringIO() as fd:
-        fd.write('gridtype  = curvilinear\n')
-        fd.write('gridsize  = {}\n'.format(griddes.dims['grid_size']))
-        fd.write('xsize     = {}\n'.format(griddes.dims['grid_xsize']))
-        fd.write('ysize     = {}\n'.format(griddes.dims['grid_ysize']))
+        fd.write(u'gridtype  = curvilinear\n')
+        fd.write(u'gridsize  = {}\n'.format(griddes.dims['grid_size']))
+        fd.write(u'xsize     = {}\n'.format(griddes.dims['grid_xsize']))
+        fd.write(u'ysize     = {}\n'.format(griddes.dims['grid_ysize']))
 
-        fd.write('xvals     = {}\n'.format(
+        fd.write(u'xvals     = {}\n'.format(
             _mkblock(griddes['grid_center_lon'].values)))
-        fd.write('xbounds   = {}\n'.format(
+        fd.write(u'xbounds   = {}\n'.format(
             _mkblock(griddes['grid_corner_lon'].values, width=8)))
 
-        fd.write('yvals     = {}\n'.format(
+        fd.write(u'yvals     = {}\n'.format(
             _mkblock(griddes['grid_center_lat'].values)))
-        fd.write('ybounds   = {}\n'.format(
+        fd.write(u'ybounds   = {}\n'.format(
             _mkblock(griddes['grid_corner_lat'].values, width=8)))
 
         retval = fd.getvalue()
