@@ -2,6 +2,19 @@
 Installing emiprep
 ==================
 
+Required dependencies
+---------------------
+
+* Python 2.7, 3.4, 3.5, or 3.6
+* `numpy <http://www.numpy.org/>`__ (1.7 or later)
+* `pandas <http://pandas.pydata.org/>`__ (0.15.0 or later)
+* `xarray <http://xarray.pydata.org/>`__ (0.9.0 or later)
+* `netcdf4-python <https://unidata.github.io/netcdf4-python/>`__ (1.2.1 or later)
+
+
+Instructions
+------------
+
 The recommended way to install emiprep is using the Anaconda_ platform.  If you
 don't have Anaconda installed on your system yet, you can use the minimal
 miniconda_ installation.

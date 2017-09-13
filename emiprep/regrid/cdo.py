@@ -65,17 +65,13 @@ def _metgrid_to_cdo_grid_info_extraction(fn_metgrid):
     lat_corner = xr.DataArray(
         np.zeros((lat_center.shape[0], lat_center.shape[1], 4),
                  dtype=np.float32),
-        {'grid_ysize': lat_center['grid_ysize'],
-         'grid_xsize': lat_center['grid_xsize'],
-         'grid_corners': np.arange(1, 5)},
-        ['grid_ysize', 'grid_xsize', 'grid_corners'], name='grid_corner_lat')
+        dims=['grid_ysize', 'grid_xsize', 'grid_corners'],
+        name='grid_corner_lat')
     lon_corner = xr.DataArray(
         np.zeros((lat_center.shape[0], lat_center.shape[1], 4),
                  dtype=np.float32),
-        {'grid_ysize': lat_center['grid_ysize'],
-         'grid_xsize': lat_center['grid_xsize'],
-         'grid_corners': np.arange(1, 5)},
-        ['grid_ysize', 'grid_xsize', 'grid_corners'], name='grid_corner_lon')
+        dims=['grid_ysize', 'grid_xsize', 'grid_corners'],
+        name='grid_corner_lon')
 
     for ii, jj in product(range(lat_center.shape[0]),
                           range(lat_center.shape[1])):
@@ -87,9 +83,7 @@ def _metgrid_to_cdo_grid_info_extraction(fn_metgrid):
     # need to include data variable in nc file, else CDO will complain
     dummy = xr.DataArray(
         np.zeros((lat_center.shape[0], lat_center.shape[1]), dtype=np.float32),
-        {'grid_ysize': lat_center['grid_ysize'],
-         'grid_xsize': lat_center['grid_xsize']},
-        ['grid_ysize', 'grid_xsize'], name='dummydata')
+        dims=['grid_ysize', 'grid_xsize'], name='dummydata')
     dummy.attrs['coordinates'] = 'grid_center_lon grid_center_lat'
 
     # fix metadata

@@ -23,7 +23,7 @@ def _check_requirements():
     try:
         import xarray
     except ImportError:
-        requirements += ['xarray>=0.8']
+        requirements += ['xarray>=0.9']
 
     try:
         import netCDF4
