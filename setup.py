@@ -38,7 +38,7 @@ setup(name='emiprep',
       cmdclass=versioneer.get_cmdclass(),
       description=('(yet another) emission pre-processor for '
                    'atmospheric chemistry models'),
-      url='https://github.com/andreas-h/emiprep/',
+      url='https://gitlab.com/andreas-h/emiprep/',
       author='Andreas Hilboll',
       author_email='hilboll@uni-bremen.de',
       license='AGPLv3',

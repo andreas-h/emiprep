@@ -2,12 +2,12 @@
 <h3>{{ _('This Page') }}</h3>
 <ul class="this-page-menu">
 {%- if show_on_github_url %}
-  <li><a href="{{ show_on_github_url }}"
-         rel="nofollow">{{ _('Show on GitHub') }}</a></li>
+  <li class="toctree-l1"><a href="{{ show_on_github_url }}"
+         rel="nofollow">{{ _('Show on GitLab') }}</a></li>
 {%- endif %}
 {%- if edit_on_github_url %}
-  <li><a href="{{ edit_on_github_url }}"
-         rel="nofollow">{{ _('Edit on GitHub') }}</a></li>
+  <li class="toctree-l1"><a href="{{ edit_on_github_url }}"
+         rel="nofollow">{{ _('Edit on GitLab') }}</a></li>
 {%- endif %}
 </ul>
 {%- endif %}
