@@ -109,3 +109,5 @@ py36:
     - python setup.py install
 
     - python setup.py pytest
+    - conda install -q codecov
+    - codecov --token=$CODECOV_TOKEN
