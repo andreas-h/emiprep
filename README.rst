@@ -18,13 +18,13 @@
 .. image:: https://gitlab.com/andreas-h/emiprep/badges/develop/pipeline.svg
    :target: https://gitlab.com/andreas-h/emiprep/commits/develop
    :alt: Build Status
-.. CodeCov            
-.. image:: https://codecov.io/gl/andreas-h/emiprep/branch/develop/graph/badge.svg
-   :target: https://codecov.io/gl/andreas-h/emiprep
-   :alt: Test Coverage (CodeCov)
+.. Test coverage
 .. image:: https://api.codeclimate.com/v1/badges/a75f12e3b6f10b7a36d0/test_coverage
    :target: https://codeclimate.com/repos/59b995cde1f80102ad00039e/test_coverage
    :alt: Test Coverage (Code Climate)
+.. image:: https://codecov.io/gl/andreas-h/emiprep/branch/develop/graph/badge.svg
+   :target: https://codecov.io/gl/andreas-h/emiprep
+   :alt: Test Coverage (CodeCov)
 .. Static Analysis
 .. image:: https://api.codeclimate.com/v1/badges/a75f12e3b6f10b7a36d0/maintainability
    :target: https://codeclimate.com/repos/59b995cde1f80102ad00039e/maintainability
