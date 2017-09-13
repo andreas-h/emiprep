@@ -49,11 +49,62 @@ py27:
   script:
     - conda config --set always_yes yes --set changeps1 no
     - conda update -q conda
-    - conda config --add channels conda-forge
+    - conda config --append channels conda-forge
 
     - conda info -a
 
     - conda create -q -n emiprep_test python=2.7 --file requirements_dev.txt
+    - source activate emiprep_test
+    - python setup.py install
+
+    - python setup.py pytest
+
+py34:
+  image: "continuumio/miniconda3"
+  except:
+    - tags
+  script:
+    - conda config --set always_yes yes --set changeps1 no
+    - conda update -q conda
+    - conda config --append channels conda-forge
+
+    - conda info -a
+
+    - conda create -q -n emiprep_test python=3.4 --file requirements_dev.txt
+    - source activate emiprep_test
+    - python setup.py install
+
+    - python setup.py pytest
+
+py35:
+  image: "continuumio/miniconda3"
+  except:
+    - tags
+  script:
+    - conda config --set always_yes yes --set changeps1 no
+    - conda update -q conda
+    - conda config --append channels conda-forge
+
+    - conda info -a
+
+    - conda create -q -n emiprep_test python=3.5 --file requirements_dev.txt
+    - source activate emiprep_test
+    - python setup.py install
+
+    - python setup.py pytest
+
+py36:
+  image: "continuumio/miniconda3"
+  except:
+    - tags
+  script:
+    - conda config --set always_yes yes --set changeps1 no
+    - conda update -q conda
+    - conda config --append channels conda-forge
+
+    - conda info -a
+
+    - conda create -q -n emiprep_test python=3.6 --file requirements_dev.txt
     - source activate emiprep_test
     - python setup.py install
 
