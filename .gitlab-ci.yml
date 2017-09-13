@@ -1,0 +1,60 @@
+before_script:
+  - which python
+  - python --version
+
+conda_build_27:
+  image: "continuumio/miniconda"
+  only:
+    - tags
+    - triggers
+    - schedules
+  script:
+    - export CI_PYTHON_VERSION=2.7
+    - bash conda_buildpackage.sh
+
+conda_build_34:
+  image: "continuumio/miniconda3"
+  only:
+    - tags
+    - triggers
+    - schedules
+  script:
+    - export CI_PYTHON_VERSION=3.4
+    - bash conda_buildpackage.sh
+
+conda_build_35:
+  image: "continuumio/miniconda3"
+  only:
+    - tags
+    - triggers
+    - schedules
+  script:
+    - export CI_PYTHON_VERSION=3.5
+    - bash conda_buildpackage.sh
+
+conda_build_36:
+  image: "continuumio/miniconda3"
+  only:
+    - tags
+    - triggers
+    - schedules
+  script:
+    - export CI_PYTHON_VERSION=3.6
+    - bash conda_buildpackage.sh
+
+py27:
+  image: "continuumio/miniconda"
+  except:
+    - tags
+  script:
+    - conda config --set always_yes yes --set changeps1 no
+    - conda update -q conda
+    - conda config --add channels conda-forge
+
+    - conda info -a
+
+    - conda create -q -n emiprep_test python=2.7 --file requirements_dev.txt
+    - source activate emiprep_test
+    - python setup.py install
+
+    - python setup.py pytest
