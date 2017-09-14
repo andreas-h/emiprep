@@ -111,3 +111,6 @@ py36:
     - python setup.py pytest
     - conda install -q codecov
     - codecov --token=$CODECOV_TOKEN
+
+    - pip install codeclimate-test-reporter
+    - codeclimate-test-reporter
